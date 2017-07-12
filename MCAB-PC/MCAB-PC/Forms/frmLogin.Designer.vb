@@ -29,6 +29,8 @@ Partial Class frmLogin
         Me.cbRemember = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.pbLogo = New System.Windows.Forms.PictureBox()
+        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbUserName
@@ -59,16 +61,16 @@ Partial Class frmLogin
         Me.btnLogin.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.btnLogin.Location = New System.Drawing.Point(44, 217)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(215, 23)
+        Me.btnLogin.Size = New System.Drawing.Size(215, 25)
         Me.btnLogin.TabIndex = 4
-        Me.btnLogin.Text = "登录(&S)"
+        Me.btnLogin.Text = "登录(&L)"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'btnMore
         '
         Me.btnMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnMore.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.btnMore.Location = New System.Drawing.Point(259, 80)
+        Me.btnMore.Location = New System.Drawing.Point(259, 96)
         Me.btnMore.Name = "btnMore"
         Me.btnMore.Size = New System.Drawing.Size(31, 23)
         Me.btnMore.TabIndex = 5
@@ -106,6 +108,17 @@ Partial Class frmLogin
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "密码："
         '
+        'pbLogo
+        '
+        Me.pbLogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbLogo.Location = New System.Drawing.Point(25, 3)
+        Me.pbLogo.Name = "pbLogo"
+        Me.pbLogo.Size = New System.Drawing.Size(250, 100)
+        Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbLogo.TabIndex = 9
+        Me.pbLogo.TabStop = False
+        '
         'frmLogin
         '
         Me.AcceptButton = Me.btnLogin
@@ -119,12 +132,14 @@ Partial Class frmLogin
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.tbPassword)
         Me.Controls.Add(Me.tbUserName)
+        Me.Controls.Add(Me.pbLogo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "用户登录"
+        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -136,4 +151,5 @@ Partial Class frmLogin
     Friend WithEvents cbRemember As CheckBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents pbLogo As PictureBox
 End Class

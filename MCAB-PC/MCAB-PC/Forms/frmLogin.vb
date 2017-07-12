@@ -1,5 +1,11 @@
 ﻿Public Class frmLogin
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Try
+            pbLogo.Image = Image.FromFile(".\Resources\Logo.PNG")
+        Catch ex As Exception
+
+        End Try
+
         tbUserName.Text = My.Settings.Login_UserName
         cbRemember.Checked = My.Settings.Login_Remember
         If My.Settings.Login_Remember = True Then
@@ -17,4 +23,7 @@
         End If
     End Sub
 
+    Private Sub btnMore_Click(sender As Object, e As EventArgs) Handles btnMore.Click
+        frmSQLSettings.ShowDialog()
+    End Sub
 End Class

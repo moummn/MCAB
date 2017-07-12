@@ -95,6 +95,12 @@
     <Compile Include="Forms\frmResources.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmSQLSettings.Designer.vb">
+      <DependentUpon>frmSQLSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSQLSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmResources.resx">
       <DependentUpon>frmResources.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSQLSettings.resx">
+      <DependentUpon>frmSQLSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
