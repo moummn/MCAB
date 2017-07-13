@@ -95,18 +95,18 @@ Partial Class frmDBSettings
         '
         'tbPassword
         '
-        Me.tbPassword.Font = New System.Drawing.Font("Wingdings", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.tbPassword.Font = New System.Drawing.Font("Wingdings", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
         Me.tbPassword.Location = New System.Drawing.Point(74, 99)
         Me.tbPassword.Name = "tbPassword"
         Me.tbPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(108)
-        Me.tbPassword.Size = New System.Drawing.Size(187, 21)
+        Me.tbPassword.Size = New System.Drawing.Size(187, 23)
         Me.tbPassword.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 100)
+        Me.Label3.Location = New System.Drawing.Point(12, 101)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 17)
         Me.Label3.TabIndex = 6
