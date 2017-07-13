@@ -19,6 +19,17 @@ Public Class frmDBSettings
     End Sub
 
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        Dim sqlConnection1 As SqlClient.SqlConnection
+        Dim strConnect As String = ”data source=" & tbServer.Text & ";initial catalog=" &
+            tbDatabase.Text & ";user id=" & tbUser.Text & ";password=" & tbPassword.Text & ";”
+        sqlConnection1 = New System.Data.SqlClient.SqlConnection(strConnect)
+        Try
+            sqlConnection1.Open()              '打开数据库
+            sqlConnection1.Close()              '关闭连接，释放资源
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
 
     End Sub
 
