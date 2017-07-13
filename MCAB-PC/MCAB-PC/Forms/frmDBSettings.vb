@@ -26,8 +26,11 @@ Public Class frmDBSettings
         Try
             sqlConnection1.Open()              '打开数据库
             sqlConnection1.Close()              '关闭连接，释放资源
+            MsgBox("测试通过!")
         Catch ex As Exception
             MsgBox(ex.ToString)
+
+
         End Try
 
 
