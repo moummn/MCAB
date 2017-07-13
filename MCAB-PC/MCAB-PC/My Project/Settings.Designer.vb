@@ -89,6 +89,54 @@ Namespace My
                 Me("Login_Remember") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("(local)")>  _
+        Public Property DB_Server() As String
+            Get
+                Return CType(Me("DB_Server"),String)
+            End Get
+            Set
+                Me("DB_Server") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("MCAB")>  _
+        Public Property DB_Database() As String
+            Get
+                Return CType(Me("DB_Database"),String)
+            End Get
+            Set
+                Me("DB_Database") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("sa")>  _
+        Public Property DB_User() As String
+            Get
+                Return CType(Me("DB_User"),String)
+            End Get
+            Set
+                Me("DB_User") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DB_Password() As String
+            Get
+                Return CType(Me("DB_Password"),String)
+            End Get
+            Set
+                Me("DB_Password") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

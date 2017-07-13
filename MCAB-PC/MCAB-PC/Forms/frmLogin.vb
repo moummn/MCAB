@@ -24,6 +24,6 @@
     End Sub
 
     Private Sub btnMore_Click(sender As Object, e As EventArgs) Handles btnMore.Click
-        frmSQLSettings.ShowDialog()
+        frmDBSettings.ShowDialog(Me)
     End Sub
 End Class

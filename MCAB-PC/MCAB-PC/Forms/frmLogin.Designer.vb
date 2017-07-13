@@ -38,7 +38,7 @@ Partial Class frmLogin
         Me.tbUserName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbUserName.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.tbUserName.Location = New System.Drawing.Point(21, 119)
+        Me.tbUserName.Location = New System.Drawing.Point(21, 129)
         Me.tbUserName.Name = "tbUserName"
         Me.tbUserName.Size = New System.Drawing.Size(258, 23)
         Me.tbUserName.TabIndex = 2
@@ -48,7 +48,7 @@ Partial Class frmLogin
         Me.tbPassword.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPassword.Font = New System.Drawing.Font("Wingdings", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
-        Me.tbPassword.Location = New System.Drawing.Point(21, 160)
+        Me.tbPassword.Location = New System.Drawing.Point(21, 170)
         Me.tbPassword.Name = "tbPassword"
         Me.tbPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(108)
         Me.tbPassword.Size = New System.Drawing.Size(258, 21)
@@ -59,9 +59,9 @@ Partial Class frmLogin
         Me.btnLogin.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnLogin.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.btnLogin.Location = New System.Drawing.Point(44, 217)
+        Me.btnLogin.Location = New System.Drawing.Point(74, 227)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(215, 25)
+        Me.btnLogin.Size = New System.Drawing.Size(149, 29)
         Me.btnLogin.TabIndex = 4
         Me.btnLogin.Text = "登录(&L)"
         Me.btnLogin.UseVisualStyleBackColor = True
@@ -70,18 +70,18 @@ Partial Class frmLogin
         '
         Me.btnMore.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnMore.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.btnMore.Location = New System.Drawing.Point(259, 96)
+        Me.btnMore.Location = New System.Drawing.Point(188, 199)
         Me.btnMore.Name = "btnMore"
-        Me.btnMore.Size = New System.Drawing.Size(31, 23)
+        Me.btnMore.Size = New System.Drawing.Size(91, 23)
         Me.btnMore.TabIndex = 5
-        Me.btnMore.Text = "..."
+        Me.btnMore.Text = "连接设置(&C)..."
         Me.btnMore.UseVisualStyleBackColor = True
         '
         'cbRemember
         '
         Me.cbRemember.AutoSize = True
         Me.cbRemember.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.cbRemember.Location = New System.Drawing.Point(21, 191)
+        Me.cbRemember.Location = New System.Drawing.Point(21, 201)
         Me.cbRemember.Name = "cbRemember"
         Me.cbRemember.Size = New System.Drawing.Size(91, 21)
         Me.cbRemember.TabIndex = 6
@@ -92,7 +92,7 @@ Partial Class frmLogin
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(19, 99)
+        Me.Label1.Location = New System.Drawing.Point(19, 109)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 17)
         Me.Label1.TabIndex = 7
@@ -102,7 +102,7 @@ Partial Class frmLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(19, 143)
+        Me.Label2.Location = New System.Drawing.Point(19, 153)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 17)
         Me.Label2.TabIndex = 8

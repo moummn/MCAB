@@ -95,10 +95,10 @@
     <Compile Include="Forms\frmResources.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSQLSettings.Designer.vb">
-      <DependentUpon>frmSQLSettings.vb</DependentUpon>
+    <Compile Include="Forms\frmDBSettings.Designer.vb">
+      <DependentUpon>frmDBSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSQLSettings.vb">
+    <Compile Include="Forms\frmDBSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -125,8 +125,8 @@
     <EmbeddedResource Include="Forms\frmResources.resx">
       <DependentUpon>frmResources.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSQLSettings.resx">
-      <DependentUpon>frmSQLSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmDBSettings.resx">
+      <DependentUpon>frmDBSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

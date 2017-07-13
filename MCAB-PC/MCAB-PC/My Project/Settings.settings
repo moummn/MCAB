@@ -11,5 +11,17 @@
     <Setting Name="Login_Remember" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="DB_Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(local)</Value>
+    </Setting>
+    <Setting Name="DB_Database" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MCAB</Value>
+    </Setting>
+    <Setting Name="DB_User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="DB_Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
