@@ -1,10 +1,14 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmDBSettings
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
 
-    End Sub
-
+    ''' <summary>
+    ''' <para>作为对话窗体时，每次点击按钮都会关闭当前对话窗体，为了避免这个现象，
+    ''' 设置一个CloseCancel变量来解决这个问题</para> 
+    ''' <para>True - 避免本次关闭；
+    ''' False - 正常关闭</para>
+    ''' </summary>
+    Dim CloseCancel As Boolean = False
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         My.Settings.DB_Server = tbServer.Text
         My.Settings.DB_Database = tbDatabase.Text
@@ -19,6 +23,8 @@ Public Class frmDBSettings
     End Sub
 
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        sender.Enabled = False
+
         Dim sqlConnection1 As SqlClient.SqlConnection
         Dim strConnect As String = ”data source=" & tbServer.Text & ";initial catalog=" &
             tbDatabase.Text & ";user id=" & tbUser.Text & ";password=" & tbPassword.Text & ";”
@@ -28,17 +34,22 @@ Public Class frmDBSettings
             sqlConnection1.Close()              '关闭连接，释放资源
             MsgBox("测试通过!")
         Catch ex As Exception
-            MsgBox(ex.ToString)
+
+            MsgBox(ex.Message)
 
 
         End Try
 
+        sender.Enabled = True
+        sender.Focus()
+        CloseCancel = True
 
     End Sub
 
     Private Sub frmDBSettings_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If sender.Activecontrol.Name = "btnTest" Then
+        If CloseCancel = True Then
             e.Cancel = True
+            CloseCancel = False
         End If
     End Sub
 End Class
