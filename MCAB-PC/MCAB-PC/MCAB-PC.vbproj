@@ -107,6 +107,7 @@
     <Compile Include="Forms\frmDBSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Moudles\mdMACB.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
