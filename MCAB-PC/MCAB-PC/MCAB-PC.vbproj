@@ -82,6 +82,12 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\frmCreateDatabase.Designer.vb">
+      <DependentUpon>frmCreateDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCreateDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmCreateDatabase.resx">
+      <DependentUpon>frmCreateDatabase.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>

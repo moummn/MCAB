@@ -1,6 +1,52 @@
 ﻿Imports System.ComponentModel
 
+
 Public Class frmDBSettings
+    ''' <summary>
+    ''' 创建数据库
+    ''' </summary>
+    ''' <param name="ServerName">服务器实例名</param>
+    ''' <param name="DBName">数据库名</param>
+    ''' <param name="UserName">登录用户名</param>
+    ''' <param name="Password">登录密码</param>
+    ''' <param name="ErrString">返回的错误消息</param>
+    ''' <returns>返回错误代码</returns>
+    Private Function fnCreateDB(ByVal ServerName As String,
+                                ByVal DBName As String,
+                                ByVal UserName As String,
+                                ByVal Password As String,
+                                Optional ByRef ErrString As String = "") As Integer
+        Dim strConnect As String = "data source=" & ServerName & ";initial catalog=" &
+                                   ";user id=" & UserName & ";password=" &
+                                   Password & ";”
+        Dim sql As String = "CREATE DATABASE [" & tbDatabase.Text & "]"
+        Dim sqlConnection1 As SqlClient.SqlConnection =
+            New System.Data.SqlClient.SqlConnection(strConnect)
+        Try
+            sqlConnection1.Open()
+            Dim sqlCmd As SqlClient.SqlCommand =
+                New SqlClient.SqlCommand(sql, sqlConnection1)
+            sqlCmd.ExecuteNonQuery()
+            sqlConnection1.Close()
+            Return 0
+        Catch ex As System.Data.SqlClient.SqlException
+            ErrString = ex.ToString
+            Try
+                sqlConnection1.Close()
+            Finally
+            End Try
+            Return ex.Number
+        Catch ex As Exception
+            ErrString = ex.ToString
+            Try
+                sqlConnection1.Close()
+            Finally
+            End Try
+            Return 1
+        End Try
+
+    End Function
+
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
 
     End Sub
@@ -26,11 +72,9 @@ Public Class frmDBSettings
         Application.DoEvents()
 
         Dim sqlConnection1 As SqlClient.SqlConnection
-        Dim sqlCmd As SqlClient.SqlCommand = Nothing
-        Dim strConnect As String = ”data source=" & tbServer.Text & ";initial catalog=" &
-             ";user id=" & tbUser.Text & ";password=" & tbPassword.Text & ";”
-        'Dim strConnect As String = ”data source=" & tbServer.Text & ";initial catalog=" &
-        '    tbDatabase.Text & ";user id=" & tbUser.Text & ";password=" & tbPassword.Text & ";”
+
+        Dim strConnect As String = "data source=" & tbServer.Text & ";initial catalog=" &
+             tbDatabase.Text & ";user id=" & tbUser.Text & ";password=" & tbPassword.Text & ";”
         sqlConnection1 = New System.Data.SqlClient.SqlConnection(strConnect)
         Try
             sqlConnection1.Open()              '打开数据库
@@ -45,10 +89,16 @@ Public Class frmDBSettings
                               "'的数据库，是否立即创建？" & vbCrLf & vbCrLf &
                               "注意,请确认是否存在数据库，该操作也可能清空数据库！",
                                vbYesNo + vbQuestion) = MsgBoxResult.Yes Then
-                        Dim sql As String = "CREATE DATABASE [" & tbDatabase.Text & "]"
-                        sqlCmd = New SqlClient.SqlCommand(sql, sqlConnection1)
-                        sqlCmd.ExecuteNonQuery()
+                        Dim ErrNumber As Integer
+                        Dim ErrString As String = ""
+                        ErrNumber = fnCreateDB(tbServer.Text, tbDatabase.Text,
+                                               tbUser.Text, tbPassword.Text,
+                                               ErrString)
+                        If ErrNumber <> 0 Then
+                            MsgBox(ErrString, vbCritical)
+                        End If
                     End If
+
                 Case 18456
                     MsgBox("数据库用户名或密码错误！")
                 Case Else
