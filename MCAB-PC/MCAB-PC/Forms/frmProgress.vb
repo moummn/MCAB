@@ -35,15 +35,30 @@
         Dim strConnect As String = "data source=" & ServerName & ";initial catalog=" &
                                    ";user id=" & UserName & ";password=" &
                                    Password & ";”
-        Dim sql As String = "CREATE DATABASE [" & DBName & "]"
         Dim sqlConnection1 As SqlClient.SqlConnection =
             New System.Data.SqlClient.SqlConnection(strConnect)
+        'TODO
+        ''''''sqlConnection1.ConnectionString = strConnect
         Try
+            '创建数据库
             sbProg(1, 1, "正在创建数据库...")
+            Dim sql As String = "CREATE DATABASE [" & DBName & "]"
             sqlConnection1.Open()
             Dim sqlCmd As SqlClient.SqlCommand =
                 New SqlClient.SqlCommand(sql, sqlConnection1)
             sqlCmd.ExecuteNonQuery()
+            sqlConnection1.Close()
+
+            '创建系统表 - 目录索引
+            strConnect = "data source=" & ServerName & ";initial catalog=" & DBName &
+                         ";user id=" & UserName & ";password=" &
+                         Password & ";”
+            sql = "CREATE TABLE DirectoryIndex (id INTEGER CONSTRAINT PKeyMyId PRIMARY KEY,
+                   DirName CHAR(255))"
+            'sqlConnection1 = SqlClient.SqlCommand(sql, sqlConnection1)
+
+
+
             'Catch ex As System.Data.SqlClient.SqlException
             '    MsgBox(ex.ToString)
         Catch ex As Exception
