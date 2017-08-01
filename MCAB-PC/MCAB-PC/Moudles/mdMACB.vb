@@ -10,4 +10,7 @@
             Application.DoEvents()
         Next
     End Sub
+    Public Function fnGetTimeString() As String
+        fnGetTimeString = Strings.Right(Hex(Now.ToBinary) & Strings.Right("0000" & Hex(65535 * Rnd(Now.Millisecond)), 4), 20)
+    End Function
 End Module
