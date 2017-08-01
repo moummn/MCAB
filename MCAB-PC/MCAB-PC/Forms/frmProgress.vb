@@ -34,15 +34,16 @@
                                 ByVal UserName As String,
                                 ByVal Password As String)
         Dim L As Long = 1
+        Dim UL As ULong = 0
         Dim strConnect As String
         Dim sqlConnection1 As New SqlClient.SqlConnection
         'Dim sqlConnection1 As SqlClient.SqlConnection = New System.Data.SqlClient.SqlConnection(strConnect)
         Dim sqlCmd As New SqlClient.SqlCommand
         'Dim sqlCmd As SqlClient.SqlCommand = New SqlClient.SqlCommand(sql, sqlConnection1)
 
-        Try
-            '创建数据库
-            sbProg(1, 5, "正在创建数据库...")
+        'Try
+        '创建数据库
+        sbProg(1, 5, "正在创建数据库...")
             strConnect = "data source=" & ServerName & ";initial catalog=" &
                          ";user id=" & UserName & ";password=" & Password & ";”
             sqlConnection1.ConnectionString = strConnect
@@ -76,32 +77,36 @@
 
             '创建系统表 - 基本信息库
             sbProg(3)
-            sqlCmd.CommandText = "CREATE TABLE BasicInfo (
-                                  id INTEGER CONSTRAINT PK_BasicInfo PRIMARY KEY,
+            sqlCmd.CommandText = "CREATE TABLE [DB.Settings] (
+                                  id INTEGER CONSTRAINT PK_DB_Setting PRIMARY KEY,
                                   Name NVARCHAR(50),
                                   Value NVARCHAR(MAX))"
             sqlCmd.ExecuteNonQuery()
-            sqlCmd.CommandText = "INSERT INTO BasicInfo VALUES ( '1','Title','档案管理系统')"
+            sqlCmd.CommandText = "INSERT INTO [DB.Settings] VALUES ( '1','Title','档案管理系统')"
             sqlCmd.ExecuteNonQuery()
-            sqlCmd.CommandText = "INSERT INTO BasicInfo VALUES ( '2','Version','1.0')"
+            sqlCmd.CommandText = "INSERT INTO [DB.Settings] VALUES ( '2','Version','1.0')"
             sqlCmd.ExecuteNonQuery()
 
             '创建系统表 - 目录索引
             sbProg(4)
-            sqlCmd.CommandText = "CREATE TABLE DirectoryIndex (
-                                  id INTEGER CONSTRAINT PK_DirectoryIndex PRIMARY KEY,
+            sqlCmd.CommandText = "CREATE TABLE [Dir.Index] (
+                                  id INTEGER CONSTRAINT PK_Dir_Index PRIMARY KEY,
                                   hierarchy INTEGER,
-                                  DirName CHAR(255))"
+                                  DirName NVARCHAR(255),
+                                  DirIndex CHAR(50))"
+        sqlCmd.ExecuteNonQuery()
+        ''''''''TODO
+        UL = Convert.ToUInt64(Date.Now.ToBinary)
+            sqlCmd.CommandText = "INSERT INTO [Dir.Index] VALUES ( '1','0','档案目录1','" & CStr(L) & "')"
             sqlCmd.ExecuteNonQuery()
-            sqlCmd.CommandText = "INSERT INTO DirectoryIndex VALUES ( '1','0','档案目录1')"
-            sqlCmd.ExecuteNonQuery()
-            sqlCmd.CommandText = "INSERT INTO DirectoryIndex VALUES ( '2','0','档案目录2')"
+            UL = Convert.ToUInt64(Date.Now.ToBinary)
+            sqlCmd.CommandText = "INSERT INTO [Dir.Index] VALUES ( '2','0','档案目录2','" & CStr(L) & "')"
             sqlCmd.ExecuteNonQuery()
             sbProg(5)
 
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+        'Catch ex As Exception
+        '    MsgBox(ex.ToString)
+        'End Try
 
         Try
             sqlConnection1.Close()
