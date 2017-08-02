@@ -45,7 +45,7 @@ Public Class SrvMCAB
             End Select
         End Try
         '会话结束  
-        Client.Client.Dispose()
+        ' Client.Client.Dispose()
     End Sub
     Private Sub SendData(Client As TcpClient, Buffer As Byte())
         Client.Client.Send(Buffer) '发送数据    
