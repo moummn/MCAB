@@ -19,19 +19,23 @@
     '注意: 以下过程是组件设计器所必需的
     '可使用组件设计器修改它。
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ServiceProcessInstaller1 = New System.ServiceProcess.ServiceProcessInstaller()
         Me.ServiceInstaller1 = New System.ServiceProcess.ServiceInstaller()
         '
         'ServiceProcessInstaller1
         '
+        Me.ServiceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem
         Me.ServiceProcessInstaller1.Password = Nothing
         Me.ServiceProcessInstaller1.Username = Nothing
         '
         'ServiceInstaller1
         '
-        Me.ServiceInstaller1.ServiceName = "Service1"
+        Me.ServiceInstaller1.Description = "MACB PC端后台服务进程，用于收发TCP/IP数据和SQL连接，详细信息和状态请使用监视器查看。"
+        Me.ServiceInstaller1.DisplayName = "MACB PC端后台服务进程"
+        Me.ServiceInstaller1.ServiceName = "MCAB-PC-Services"
+        Me.ServiceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic
         '
         'ProjectInstaller
         '

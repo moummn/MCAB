@@ -41,8 +41,11 @@ Partial Class SrvMCAB
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
-        Me.ServiceName = "Service1"
+        '
+        'SrvMCAB
+        '
+        Me.ServiceName = "MCAB-PC-Services"
+
     End Sub
 
 End Class
