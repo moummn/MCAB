@@ -148,9 +148,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.MCAB_PC.My.MySettings
+        Friend ReadOnly Property Settings() As Global.MCAB_PC_Client.My.MySettings
             Get
-                Return Global.MCAB_PC.My.MySettings.Default
+                Return Global.MCAB_PC_Client.My.MySettings.Default
             End Get
         End Property
     End Module

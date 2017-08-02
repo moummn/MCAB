@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>MCAB_PC.My.MyApplication</StartupObject>
-    <RootNamespace>MCAB_PC</RootNamespace>
-    <AssemblyName>MCAB-PC</AssemblyName>
+    <StartupObject>MCAB_PC_Client.My.MyApplication</StartupObject>
+    <RootNamespace>MCAB_PC_Client</RootNamespace>
+    <AssemblyName>MCAB-PC-Client</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -35,7 +35,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MCAB-PC.xml</DocumentationFile>
+    <DocumentationFile>MCAB-PC-Client.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -45,7 +45,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MCAB-PC.xml</DocumentationFile>
+    <DocumentationFile>MCAB-PC-Client.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

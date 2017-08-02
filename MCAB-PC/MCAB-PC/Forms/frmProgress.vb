@@ -105,7 +105,7 @@
                                 DirName NVARCHAR(255),
                                 DirBID VARCHAR(20))"
         sqlCmd.ExecuteNonQuery()
-        For I = 1 To 2
+        For I = 1 To 10
             S = fnGetTimeString()
             sqlCmd.CommandText = "INSERT INTO [" & DBName & "].[dbo].[DB.DirIndex] VALUES 
                                 ( '" & CStr(I) & "','0','档案目录" & CStr(I) & "','" & S & "')"

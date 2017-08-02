@@ -165,7 +165,7 @@ Partial Class frmDBSettings
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "数据库设置"
+        Me.Text = "连接设置"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
