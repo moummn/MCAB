@@ -39,7 +39,7 @@ Partial Class SrvMCAB
     ' 注意: 以下过程是组件设计器所必需的
     ' 可使用组件设计器修改它。
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         '
         'SrvMCAB
