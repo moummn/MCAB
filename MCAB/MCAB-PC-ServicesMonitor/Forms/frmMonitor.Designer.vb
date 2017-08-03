@@ -38,9 +38,9 @@ Partial Class frmMonitor
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.tbDebug = New System.Windows.Forms.TextBox()
-        Me.tbCmd = New System.Windows.Forms.TextBox()
         Me.btnSend = New System.Windows.Forms.Button()
+        Me.tbCmd = New System.Windows.Forms.TextBox()
+        Me.tbDebug = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -181,23 +181,6 @@ Partial Class frmMonitor
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "调试工具"
         '
-        'tbDebug
-        '
-        Me.tbDebug.Location = New System.Drawing.Point(8, 20)
-        Me.tbDebug.Multiline = True
-        Me.tbDebug.Name = "tbDebug"
-        Me.tbDebug.ReadOnly = True
-        Me.tbDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.tbDebug.Size = New System.Drawing.Size(430, 168)
-        Me.tbDebug.TabIndex = 0
-        '
-        'tbCmd
-        '
-        Me.tbCmd.Location = New System.Drawing.Point(7, 190)
-        Me.tbCmd.Name = "tbCmd"
-        Me.tbCmd.Size = New System.Drawing.Size(380, 21)
-        Me.tbCmd.TabIndex = 1
-        '
         'btnSend
         '
         Me.btnSend.Location = New System.Drawing.Point(387, 190)
@@ -206,6 +189,23 @@ Partial Class frmMonitor
         Me.btnSend.TabIndex = 10
         Me.btnSend.Text = "Send"
         Me.btnSend.UseVisualStyleBackColor = True
+        '
+        'tbCmd
+        '
+        Me.tbCmd.Location = New System.Drawing.Point(7, 190)
+        Me.tbCmd.Name = "tbCmd"
+        Me.tbCmd.Size = New System.Drawing.Size(380, 21)
+        Me.tbCmd.TabIndex = 1
+        '
+        'tbDebug
+        '
+        Me.tbDebug.Location = New System.Drawing.Point(7, 20)
+        Me.tbDebug.Multiline = True
+        Me.tbDebug.Name = "tbDebug"
+        Me.tbDebug.ReadOnly = True
+        Me.tbDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.tbDebug.Size = New System.Drawing.Size(430, 168)
+        Me.tbDebug.TabIndex = 0
         '
         'frmMonitor
         '
