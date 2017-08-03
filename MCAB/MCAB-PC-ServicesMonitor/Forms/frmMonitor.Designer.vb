@@ -25,10 +25,10 @@ Partial Class frmMonitor
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ServiceController1 = New System.ServiceProcess.ServiceController()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.tbMCABIP = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.tbMCABPort = New System.Windows.Forms.TextBox()
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnStopService = New System.Windows.Forms.Button()
@@ -51,12 +51,13 @@ Partial Class frmMonitor
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'TextBox1
+        'tbMCABIP
         '
-        Me.TextBox1.Location = New System.Drawing.Point(89, 23)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 21)
-        Me.TextBox1.TabIndex = 5
+        Me.tbMCABIP.Location = New System.Drawing.Point(89, 23)
+        Me.tbMCABIP.Name = "tbMCABIP"
+        Me.tbMCABIP.Size = New System.Drawing.Size(100, 21)
+        Me.tbMCABIP.TabIndex = 5
+        Me.tbMCABIP.Text = "127.0.0.1"
         '
         'Label2
         '
@@ -76,15 +77,17 @@ Partial Class frmMonitor
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "端口"
         '
-        'TextBox2
+        'tbMCABPort
         '
-        Me.TextBox2.Location = New System.Drawing.Point(268, 23)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(40, 21)
-        Me.TextBox2.TabIndex = 7
+        Me.tbMCABPort.Location = New System.Drawing.Point(268, 23)
+        Me.tbMCABPort.Name = "tbMCABPort"
+        Me.tbMCABPort.Size = New System.Drawing.Size(40, 21)
+        Me.tbMCABPort.TabIndex = 7
+        Me.tbMCABPort.Text = "2155"
         '
         'btnConnect
         '
+        Me.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnConnect.Location = New System.Drawing.Point(344, 18)
         Me.btnConnect.Name = "btnConnect"
         Me.btnConnect.Size = New System.Drawing.Size(94, 28)
@@ -109,6 +112,7 @@ Partial Class frmMonitor
         'btnStopService
         '
         Me.btnStopService.Enabled = False
+        Me.btnStopService.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnStopService.Location = New System.Drawing.Point(344, 54)
         Me.btnStopService.Name = "btnStopService"
         Me.btnStopService.Size = New System.Drawing.Size(94, 28)
@@ -119,6 +123,7 @@ Partial Class frmMonitor
         'btnStartService
         '
         Me.btnStartService.Enabled = False
+        Me.btnStartService.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnStartService.Location = New System.Drawing.Point(244, 54)
         Me.btnStartService.Name = "btnStartService"
         Me.btnStartService.Size = New System.Drawing.Size(94, 28)
@@ -129,6 +134,7 @@ Partial Class frmMonitor
         'btnUninstallService
         '
         Me.btnUninstallService.Enabled = False
+        Me.btnUninstallService.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnUninstallService.Location = New System.Drawing.Point(344, 20)
         Me.btnUninstallService.Name = "btnUninstallService"
         Me.btnUninstallService.Size = New System.Drawing.Size(94, 28)
@@ -139,6 +145,7 @@ Partial Class frmMonitor
         'btnInstallService
         '
         Me.btnInstallService.Enabled = False
+        Me.btnInstallService.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnInstallService.Location = New System.Drawing.Point(244, 20)
         Me.btnInstallService.Name = "btnInstallService"
         Me.btnInstallService.Size = New System.Drawing.Size(94, 28)
@@ -158,9 +165,9 @@ Partial Class frmMonitor
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.tbMCABIP)
         Me.GroupBox2.Controls.Add(Me.btnConnect)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.tbMCABPort)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Location = New System.Drawing.Point(14, 118)
         Me.GroupBox2.Name = "GroupBox2"
@@ -183,6 +190,7 @@ Partial Class frmMonitor
         '
         'btnSend
         '
+        Me.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnSend.Location = New System.Drawing.Point(387, 190)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(51, 21)
@@ -232,10 +240,10 @@ Partial Class frmMonitor
     End Sub
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ServiceController1 As ServiceProcess.ServiceController
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents tbMCABIP As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents tbMCABPort As TextBox
     Friend WithEvents btnConnect As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnStopService As Button

@@ -135,50 +135,32 @@ Public Class frmMonitor
 
                 ' Update the Self-elevate button to show the UAC shield icon on 
                 ' the UI if the process is not elevated.
-                Me.btnStartService.FlatStyle = FlatStyle.System
+                'Me.btnStartService.FlatStyle = FlatStyle.System
+                NativeMethods.SendMessage(Me.btnInstallService.Handle, NativeMethods.BCM_SETSHIELD,
+                                         0, IIf(fIsElevated, IntPtr.Zero, New IntPtr(1)))
+                NativeMethods.SendMessage(Me.btnUninstallService.Handle, NativeMethods.BCM_SETSHIELD,
+                                         0, IIf(fIsElevated, IntPtr.Zero, New IntPtr(1)))
                 NativeMethods.SendMessage(Me.btnStartService.Handle, NativeMethods.BCM_SETSHIELD,
                                          0, IIf(fIsElevated, IntPtr.Zero, New IntPtr(1)))
+                NativeMethods.SendMessage(Me.btnStopService.Handle, NativeMethods.BCM_SETSHIELD,
+                                         0, IIf(fIsElevated, IntPtr.Zero, New IntPtr(1)))
             Catch ex As Exception
-                Me.lbIsElevated.Text = "N/A"
-                MessageBox.Show(ex.Message, "An error occurred in IsProcessElevated",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
 
-            Try
-                ' Get and display the process integrity level.
-                Dim IL As Integer = Me.GetProcessIntegrityLevel
-                Select Case IL
-                    Case NativeMethods.SECURITY_MANDATORY_UNTRUSTED_RID
-                        Me.lbIntegrityLevel.Text = "Untrusted"
-                    Case NativeMethods.SECURITY_MANDATORY_LOW_RID
-                        Me.lbIntegrityLevel.Text = "Low"
-                    Case NativeMethods.SECURITY_MANDATORY_MEDIUM_RID
-                        Me.lbIntegrityLevel.Text = "Medium"
-                    Case NativeMethods.SECURITY_MANDATORY_HIGH_RID
-                        Me.lbIntegrityLevel.Text = "High"
-                    Case NativeMethods.SECURITY_MANDATORY_SYSTEM_RID
-                        Me.lbIntegrityLevel.Text = "System"
-                    Case Else
-                        Me.lbIntegrityLevel.Text = "Unknown"
-                End Select
-            Catch ex As Exception
-                Me.lbIntegrityLevel.Text = "N/A"
-                MessageBox.Show(ex.Message, "An error occurred in GetProcessIntegrityLevel!",
-                                MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                'MessageBox.Show(ex.Message, "An error occurred in IsProcessElevated",
+                '                MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-
-        Else
-            Me.lbIsElevated.Text = "N/A"
-            Me.lbIntegrityLevel.Text = "N/A"
         End If
+
     End Sub
 
-    Private Sub TextBox12_GotFocus(sender As Object, e As EventArgs) Handles TextBox1.GotFocus, TextBox2.GotFocus
+    Private Sub TextBox12_GotFocus(sender As Object, e As EventArgs) Handles tbMCABIP.GotFocus, tbMCABPort.GotFocus
         Me.AcceptButton = btnConnect
     End Sub
 
 
-    Private Sub TextBox12_LostFocus(sender As Object, e As EventArgs) Handles TextBox1.LostFocus, TextBox2.LostFocus
+    Private Sub TextBox12_LostFocus(sender As Object, e As EventArgs) Handles tbMCABIP.LostFocus, tbMCABPort.LostFocus
         Me.AcceptButton = btnSend
     End Sub
+
+
 End Class
