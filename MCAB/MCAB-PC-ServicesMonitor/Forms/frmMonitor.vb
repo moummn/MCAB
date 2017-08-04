@@ -87,6 +87,23 @@ Public Class frmMonitor
 
         Return fIsElevated
     End Function
+
+    ''' <summary>
+    ''' The function checks whether the current process is run as administrator.
+    ''' In other words, it dictates whether the primary access token of the 
+    ''' process belongs to user account that is a member of the local 
+    ''' Administrators group and it is elevated.
+    ''' </summary>
+    ''' <returns>
+    ''' Returns True if the primary access token of the process belongs to user 
+    ''' account that is a member of the local Administrators group and it is 
+    ''' elevated. Returns False if the token does not.
+    ''' </returns>
+    Friend Function IsRunAsAdmin() As Boolean
+        Dim principal As New WindowsPrincipal(WindowsIdentity.GetCurrent)
+        Return principal.IsInRole(WindowsBuiltInRole.Administrator)
+    End Function
+
 #End Region
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ServiceController1.ServiceName = "MCAB-PC-Services"
@@ -162,5 +179,94 @@ Public Class frmMonitor
         Me.AcceptButton = btnSend
     End Sub
 
+    Private Sub btnInstallService_Click(sender As Object, e As EventArgs) Handles btnInstallService.Click
+        Dim PATH As String = Application.StartupPath
+        Dim cmdString As String
+        cmdString = "TASKKILL /F /IM MCAB-PC-Services.EXE & " &
+                    "SC CREATE MCAB-PC-Services start= auto binPath= " &
+                    PATH & "\MCAB-PC-Services.EXE obj= LocalSystem " &
+                    "DisplayName= ""MACB PC端后台服务进程"" & " &
+                    "SC DESCRIPTION MCAB-PC-Services ""MACB PC端后台服务进程，" &
+                    "用于收发TCP/IP数据和SQL连接，详细信息和状态请使用监视器查看。"""
 
+        'If Me.IsRunAsAdmin Then
+        '    Shell(cmdString)
+        '    'Shell("TASKKILL /F /IM MCAB-PC-Services.EXE")
+        '    'Shell("SC CREATE MCAB-PC-Services start= auto binPath= " & PATH & "\MCAB-PC-Services.EXE obj= LocalSystem DisplayName= ""MACB PC端后台服务进程""")
+        '    'Shell("SC DESCRIPTION MCAB-PC-Services ""MACB PC端后台服务进程，用于收发TCP/IP数据和SQL连接，详细信息和状态请使用监视器查看。""")
+        'Else
+        Dim proc As New ProcessStartInfo
+        With proc
+            .UseShellExecute = True
+            .WorkingDirectory = Environment.CurrentDirectory
+            .FileName = "CMD.EXE"
+            .Verb = "runas"
+            .Arguments = "/C" & cmdString
+        End With
+        Try
+                Process.Start(proc)
+            Catch
+                ' The user refused the elevation.
+                ' Do nothing and return directly ...
+                Return
+            End Try
+        'End If
+    End Sub
+
+    Private Sub btnUninstallService_Click(sender As Object, e As EventArgs) Handles btnUninstallService.Click
+        Dim proc As New ProcessStartInfo
+        With proc
+            .UseShellExecute = True
+            .WorkingDirectory = Environment.CurrentDirectory
+            .FileName = "SC.EXE"
+            .Verb = "runas"
+            .Arguments = "DELETE MCAB-PC-Services"
+        End With
+        Try
+            Process.Start(proc)
+        Catch
+            ' The user refused the elevation.
+            ' Do nothing and return directly ...
+            Return
+        End Try
+
+    End Sub
+
+    Private Sub btnStartService_Click(sender As Object, e As EventArgs) Handles btnStartService.Click
+        Dim proc As New ProcessStartInfo
+        With proc
+            .UseShellExecute = True
+            .WorkingDirectory = Environment.CurrentDirectory
+            .FileName = "SC.EXE"
+            .Verb = "runas"
+            .Arguments = "START MCAB-PC-Services"
+        End With
+        Try
+            Process.Start(proc)
+        Catch
+            ' The user refused the elevation.
+            ' Do nothing and return directly ...
+            Return
+        End Try
+
+    End Sub
+
+    Private Sub btnStopService_Click(sender As Object, e As EventArgs) Handles btnStopService.Click
+        Dim proc As New ProcessStartInfo
+        With proc
+            .UseShellExecute = True
+            .WorkingDirectory = Environment.CurrentDirectory
+            .FileName = "SC.EXE"
+            .Verb = "runas"
+            .Arguments = "STOP MCAB-PC-Services"
+        End With
+        Try
+            Process.Start(proc)
+        Catch
+            ' The user refused the elevation.
+            ' Do nothing and return directly ...
+            Return
+        End Try
+
+    End Sub
 End Class
