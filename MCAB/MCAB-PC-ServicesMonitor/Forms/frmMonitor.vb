@@ -278,4 +278,20 @@ Public Class frmMonitor
         End Try
 
     End Sub
+
+    Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
+        Dim proc As New ProcessStartInfo
+        With proc
+            .UseShellExecute = True
+            .WorkingDirectory = Environment.CurrentDirectory
+            .FileName = "MCAB-PC-ServicesConsole.exe"
+            .Arguments = tbMCABIP.Text & " " & tbMCABPort.Text
+        End With
+        Try
+            Process.Start(proc)
+        Catch
+
+            Return
+        End Try
+    End Sub
 End Class

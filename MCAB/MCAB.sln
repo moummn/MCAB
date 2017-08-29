@@ -9,6 +9,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MCAB-PC-Services", "MCAB-PC
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MCAB-PC-ServicesMonitor", "MCAB-PC-ServicesMonitor\MCAB-PC-ServicesMonitor.vbproj", "{A6EA6395-7A8E-4F2E-A413-6BEE5F029144}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MCAB-PC-ServicesConsole", "MCAB-PC-ServicesConsole\MCAB-PC-ServicesConsole.vbproj", "{E2364DCD-FC93-4768-BE1D-7CC426250631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180ED6E6-0153-47BA-8F4A-E0E46B6F5AF9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0482F595-7BBE-4BB2-8474-443F9596DABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,6 +31,11 @@ Global
 		{A6EA6395-7A8E-4F2E-A413-6BEE5F029144}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{A6EA6395-7A8E-4F2E-A413-6BEE5F029144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6EA6395-7A8E-4F2E-A413-6BEE5F029144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2364DCD-FC93-4768-BE1D-7CC426250631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2364DCD-FC93-4768-BE1D-7CC426250631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2364DCD-FC93-4768-BE1D-7CC426250631}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E2364DCD-FC93-4768-BE1D-7CC426250631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2364DCD-FC93-4768-BE1D-7CC426250631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
