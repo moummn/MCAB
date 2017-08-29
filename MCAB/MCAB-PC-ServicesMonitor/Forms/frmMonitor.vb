@@ -170,21 +170,11 @@ Public Class frmMonitor
 
     End Sub
 
-    Private Sub TextBox12_GotFocus(sender As Object, e As EventArgs) Handles tbMCABIP.GotFocus, tbMCABPort.GotFocus
-        Me.AcceptButton = btnConnect
-    End Sub
-
-
-    Private Sub TextBox12_LostFocus(sender As Object, e As EventArgs) Handles tbMCABIP.LostFocus, tbMCABPort.LostFocus
-        Me.AcceptButton = btnSend
-    End Sub
-
     Private Sub btnInstallService_Click(sender As Object, e As EventArgs) Handles btnInstallService.Click
         Dim PATH As String = Application.StartupPath
         Dim cmdString As String
-        cmdString = "TASKKILL /F /IM MCAB-PC-Services.EXE & " &
-                    "SC CREATE MCAB-PC-Services start= auto binPath= " &
-                    PATH & "\MCAB-PC-Services.EXE obj= LocalSystem " &
+        cmdString = "SC CREATE MCAB-PC-Services start= auto binPath= """ &
+                    PATH & "\MCAB-PC-Services.EXE"" obj= LocalSystem " &
                     "DisplayName= ""MACB PC端后台服务进程"" & " &
                     "SC DESCRIPTION MCAB-PC-Services ""MACB PC端后台服务进程，" &
                     "用于收发TCP/IP数据和SQL连接，详细信息和状态请使用监视器查看。"""
@@ -200,8 +190,12 @@ Public Class frmMonitor
             .UseShellExecute = True
             .WorkingDirectory = Environment.CurrentDirectory
             .FileName = "CMD.EXE"
-            .Verb = "runas"
-            .Arguments = "/C" & cmdString
+            If (Environment.OSVersion.Version.Major >= 6) Then
+                .Verb = "runas"
+            Else
+                .Verb = ""
+            End If
+            .Arguments = "/C " & cmdString
         End With
         Try
                 Process.Start(proc)
@@ -214,13 +208,20 @@ Public Class frmMonitor
     End Sub
 
     Private Sub btnUninstallService_Click(sender As Object, e As EventArgs) Handles btnUninstallService.Click
+        Dim cmdString As String
+        cmdString = "TASKKILL /F /IM MCAB-PC-Services.EXE & " &
+            "SC DELETE MCAB-PC-Services"
         Dim proc As New ProcessStartInfo
         With proc
             .UseShellExecute = True
             .WorkingDirectory = Environment.CurrentDirectory
-            .FileName = "SC.EXE"
-            .Verb = "runas"
-            .Arguments = "DELETE MCAB-PC-Services"
+            .FileName = "CMD.EXE"
+            If (Environment.OSVersion.Version.Major >= 6) Then
+                .Verb = "runas"
+            Else
+                .Verb = ""
+            End If
+            .Arguments = "/C " & cmdString
         End With
         Try
             Process.Start(proc)
@@ -238,7 +239,11 @@ Public Class frmMonitor
             .UseShellExecute = True
             .WorkingDirectory = Environment.CurrentDirectory
             .FileName = "SC.EXE"
-            .Verb = "runas"
+            If (Environment.OSVersion.Version.Major >= 6) Then
+                .Verb = "runas"
+            Else
+                .Verb = ""
+            End If
             .Arguments = "START MCAB-PC-Services"
         End With
         Try
@@ -257,7 +262,11 @@ Public Class frmMonitor
             .UseShellExecute = True
             .WorkingDirectory = Environment.CurrentDirectory
             .FileName = "SC.EXE"
-            .Verb = "runas"
+            If (Environment.OSVersion.Version.Major >= 6) Then
+                .Verb = "runas"
+            Else
+                .Verb = ""
+            End If
             .Arguments = "STOP MCAB-PC-Services"
         End With
         Try

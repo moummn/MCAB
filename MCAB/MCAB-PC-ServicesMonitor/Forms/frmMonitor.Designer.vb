@@ -37,13 +37,8 @@ Partial Class frmMonitor
         Me.btnInstallService = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnSend = New System.Windows.Forms.Button()
-        Me.tbCmd = New System.Windows.Forms.TextBox()
-        Me.tbDebug = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -87,6 +82,7 @@ Partial Class frmMonitor
         '
         'btnConnect
         '
+        Me.btnConnect.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnConnect.Location = New System.Drawing.Point(344, 18)
         Me.btnConnect.Name = "btnConnect"
@@ -176,52 +172,12 @@ Partial Class frmMonitor
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "MCAB服务连接配置"
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.btnSend)
-        Me.GroupBox3.Controls.Add(Me.tbCmd)
-        Me.GroupBox3.Controls.Add(Me.tbDebug)
-        Me.GroupBox3.Location = New System.Drawing.Point(14, 182)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(444, 217)
-        Me.GroupBox3.TabIndex = 12
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "调试工具"
-        '
-        'btnSend
-        '
-        Me.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnSend.Location = New System.Drawing.Point(387, 190)
-        Me.btnSend.Name = "btnSend"
-        Me.btnSend.Size = New System.Drawing.Size(51, 21)
-        Me.btnSend.TabIndex = 10
-        Me.btnSend.Text = "Send"
-        Me.btnSend.UseVisualStyleBackColor = True
-        '
-        'tbCmd
-        '
-        Me.tbCmd.Location = New System.Drawing.Point(7, 190)
-        Me.tbCmd.Name = "tbCmd"
-        Me.tbCmd.Size = New System.Drawing.Size(380, 21)
-        Me.tbCmd.TabIndex = 1
-        '
-        'tbDebug
-        '
-        Me.tbDebug.Location = New System.Drawing.Point(7, 20)
-        Me.tbDebug.Multiline = True
-        Me.tbDebug.Name = "tbDebug"
-        Me.tbDebug.ReadOnly = True
-        Me.tbDebug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.tbDebug.Size = New System.Drawing.Size(430, 168)
-        Me.tbDebug.TabIndex = 0
-        '
         'frmMonitor
         '
-        Me.AcceptButton = Me.btnSend
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(470, 411)
-        Me.Controls.Add(Me.GroupBox3)
+        Me.CancelButton = Me.btnConnect
+        Me.ClientSize = New System.Drawing.Size(471, 189)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -233,8 +189,6 @@ Partial Class frmMonitor
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -252,8 +206,4 @@ Partial Class frmMonitor
     Friend WithEvents btnInstallService As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents tbDebug As TextBox
-    Friend WithEvents btnSend As Button
-    Friend WithEvents tbCmd As TextBox
 End Class
