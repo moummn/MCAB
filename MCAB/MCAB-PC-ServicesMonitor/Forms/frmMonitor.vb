@@ -121,6 +121,18 @@ Public Class frmMonitor
                 btnUninstallService.Enabled = True
                 btnStartService.Enabled = True
                 btnStopService.Enabled = False
+            ElseIf ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StartPending Then
+                Label1.Text = "服务状态：正在启动"
+                btnInstallService.Enabled = False
+                btnUninstallService.Enabled = True
+                btnStartService.Enabled = False
+                btnStopService.Enabled = True
+            ElseIf ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StopPending Then
+                Label1.Text = "服务状态：正在停止"
+                btnInstallService.Enabled = False
+                btnUninstallService.Enabled = True
+                btnStartService.Enabled = False
+                btnStopService.Enabled = True
             Else
                 Label1.Text = "服务状态：" & ServiceController1.Status.ToString
                 btnInstallService.Enabled = False
@@ -261,13 +273,27 @@ Public Class frmMonitor
         With proc
             .UseShellExecute = True
             .WorkingDirectory = Environment.CurrentDirectory
-            .FileName = "SC.EXE"
+
+            If ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StartPending _
+                OrElse ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StopPending Then
+                .FileName = "TASKKILL.EXE"
+            Else
+                .FileName = "SC.EXE"
+            End If
+
             If (Environment.OSVersion.Version.Major >= 6) Then
                 .Verb = "runas"
             Else
                 .Verb = ""
             End If
-            .Arguments = "STOP MCAB-PC-Services"
+
+            If ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StartPending _
+                OrElse ServiceController1.Status = ServiceProcess.ServiceControllerStatus.StopPending Then
+                .Arguments = "/F /IM MCAB-PC-Services.EXE"
+            Else
+                .Arguments = "STOP MCAB-PC-Services"
+            End If
+
         End With
         Try
             Process.Start(proc)
@@ -294,4 +320,5 @@ Public Class frmMonitor
             Return
         End Try
     End Sub
+
 End Class
