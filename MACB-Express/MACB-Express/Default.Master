@@ -1,0 +1,43 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Default.master.vb" Inherits="MACB_Express._Default1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .Style-Title {
+            font-size: 36px;
+            font-family:SimHei;
+            display:inline;
+        }
+        .Style-Login {
+            
+            float:right;
+            display:inline;
+        }
+    </style>
+</head>
+<body>
+       <form id="form1" runat="server">
+        <div id="divTop">
+            <div id="divTopLeft"  class="Style-Title">
+                欢迎使用档案资料查询系统
+            </div>
+            <div id="TopRight" class="Style-Login">
+                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            </div>
+        </div>
+        <div id="Main">
+
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
