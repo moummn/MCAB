@@ -23,28 +23,28 @@
                 <tr>
                     <td class="auto-style1">数据库名称</td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbDBName" runat="server"></asp:TextBox>
                     </td>
                     
                 </tr>
                 <tr>
                     <td>数据库端口</td>
                     <td>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbDBPort" runat="server"></asp:TextBox>
                     </td>
                     
                 </tr>
                 <tr>
                     <td>登录名</td>
                     <td>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbDBUser" runat="server"></asp:TextBox>
                     </td>
                     
                 </tr>
                 <tr>
                     <td>密码</td>
                     <td>
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbDBPass" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -58,7 +58,8 @@
             </table>
             
         </div>
-       
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="" SelectCommand=""></asp:SqlDataSource>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>
