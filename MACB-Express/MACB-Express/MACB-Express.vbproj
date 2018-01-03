@@ -76,6 +76,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Install\Install.aspx" />
     <Content Include="Install\Install_Page1.aspx" />
+    <Content Include="Install\Install_Page2.aspx" />
+    <Content Include="Install\Install_Page3.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -106,6 +108,20 @@
     </Compile>
     <Compile Include="Install\Install_Page1.aspx.vb">
       <DependentUpon>Install_Page1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Install\Install_Page2.aspx.designer.vb">
+      <DependentUpon>Install_Page2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Install\Install_Page2.aspx.vb">
+      <DependentUpon>Install_Page2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Install\Install_Page3.aspx.designer.vb">
+      <DependentUpon>Install_Page3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Install\Install_Page3.aspx.vb">
+      <DependentUpon>Install_Page3.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.vb">
