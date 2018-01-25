@@ -50,13 +50,13 @@ Partial Public Class Install_Page1
     Protected WithEvents tbDBUser As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''tbDBPass 控件。
+    '''tbDBPasw 控件。
     '''</summary>
     '''<remarks>
     '''自动生成的字段。
     '''若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
     '''</remarks>
-    Protected WithEvents tbDBPass As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tbDBPasw As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''Button1 控件。

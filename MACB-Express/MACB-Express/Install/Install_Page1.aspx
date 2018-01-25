@@ -44,7 +44,7 @@
                 <tr>
                     <td>密码</td>
                     <td>
-                        <asp:TextBox ID="tbDBPass" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tbDBPasw" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                         <asp:Button ID="Button1" runat="server" Text="测试连接" />
                     </td>
                     <td>
-                        <asp:Button ID="Button2" runat="server" Text="下一步&gt;" />
+                        <asp:Button ID="Button2" runat="server" Text="下一步&gt;" style="height: 21px" />
                     </td>
                 </tr>
             </table>

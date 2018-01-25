@@ -8,7 +8,6 @@
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'My.Settings.DBName = tbDBName.Text
         'My.Settings.DBPort = tbDBPort.Text
-        'My.Settings.Save()
 
         Response.Redirect(".\Install_page2.aspx")
     End Sub
@@ -25,11 +24,12 @@
         Label1.Text = S
     End Sub
 
-    Private Sub form1_Load(sender As Object, e As EventArgs) Handles form1.Load
-        'tbDBName.Text = My.Settings.DBName
-        'tbDBPort.Text = My.Settings.DBPort
-        'tbDBUser.Text = My.Settings.DBUser
-        'tbDBPass.Text = My.Settings.DBPass
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles form1.Load
+        mdSettings.LoadSettings()
+        tbDBName.Text = mdSettings.DBName
+        tbDBPort.Text = mdSettings.DBPort
+        tbDBUser.Text = mdSettings.DBUser
+        tbDBPasw.Text = mdSettings.DBPasw
 
     End Sub
 End Class
